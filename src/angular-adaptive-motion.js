@@ -208,10 +208,9 @@ adaptive.provider('$motion', [function() {
     var start = function(){
 
       window.URL = window.URL || window.webkitURL;
-      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-
-      if (navigator.getUserMedia) {
-        navigator.getUserMedia({audio: false, video: true},
+     
+      if (getUserMedia) {
+        getUserMedia({audio: false, video: true},
           function(stream){
             $rootScope.$broadcast('adaptive.motion:onStart');
             localMediaStream = stream;
